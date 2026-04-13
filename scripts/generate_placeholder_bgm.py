@@ -2,8 +2,11 @@
 生成与各情绪文件夹对应的占位 BGM（WAV），体现：
   happy  大调 + 快速    calm   大调 + 慢速
   tense  小调 + 快速    sad    小调 + 慢速
-仅作 Demo 占位，可替换为自有版权音乐。用法（项目根目录）:
+仅作 Demo 占位。Docker 内置配乐请用 scripts/bundle_music_for_docker.py 生成 bundled_music/。
+
+用法（项目根目录）:
   python scripts/generate_placeholder_bgm.py
+  python scripts/generate_placeholder_bgm.py docker-embed   # 可选：合成 WAV 到 docker_embed/
 """
 
 from __future__ import annotations
