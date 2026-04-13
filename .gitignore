@@ -1,0 +1,19 @@
+.env
+output/
+*.seek_cache.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 配乐体积大且常涉及版权，仅保留本地；克隆后请用「分类」+ import 脚本或自备音频
+assets/music/**/*.mp3
+assets/music/**/*.wav
+assets/music/**/*.m4a
+assets/music/**/*.flac
+assets/music/**/*.ogg
+分类/**/*.mp3
+分类/**/*.wav
+分类/**/*.m4a
+分类/**/*.flac
+分类/**/*.ogg

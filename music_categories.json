@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "key": "happy",
+      "description": "欢快、喜悦、轻松、庆祝、温暖明亮",
+      "music_profile": "大调、快速节拍（曲库：分类/大调快速）"
+    },
+    {
+      "key": "calm",
+      "description": "平静、舒缓、安宁、冥想、治愈",
+      "music_profile": "大调、慢速（曲库：分类/大调慢速）"
+    },
+    {
+      "key": "tense",
+      "description": "紧张、悬疑、压迫、不安、激烈对抗",
+      "music_profile": "小调、快速（曲库：分类/小调快速）"
+    },
+    {
+      "key": "sad",
+      "description": "悲伤、失落、孤独、离别、阴郁",
+      "music_profile": "小调、慢速（曲库：分类/小调慢速）"
+    }
+  ]
+}
