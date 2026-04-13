@@ -13,7 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 ENV PYTHONUNBUFFERED=1
-# Render 会注入 PORT；Gradio 在 app.py 中读取
+# Render 会注入 PORT；Gradio 在 app.py 中读取。
+# 配乐建议挂持久盘并设 MUSIC_ROOT（见 .env.example），勿把大体积 mp3 打进镜像。
 EXPOSE 10000
 
 CMD ["python", "app.py"]

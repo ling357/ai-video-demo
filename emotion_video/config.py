@@ -10,6 +10,12 @@ ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 
+def _resolve_optional_path(raw: str | None, default: Path) -> Path:
+    if raw is None or not str(raw).strip():
+        return default
+    return Path(str(raw).strip()).expanduser().resolve()
+
+
 @dataclass(frozen=True)
 class Settings:
     zhipu_api_key: str
@@ -52,9 +58,13 @@ def load_settings() -> Settings:
         in ("1", "true", "yes"),
         debug_stop_after_image=os.environ.get("DEBUG_STOP_AFTER_IMAGE", "false").lower()
         in ("1", "true", "yes"),
-        music_root=ROOT / "assets" / "music",
+        music_root=_resolve_optional_path(
+            os.environ.get("MUSIC_ROOT"), ROOT / "assets" / "music"
+        ),
         categories_path=ROOT / "music_categories.json",
-        output_dir=ROOT / "output",
+        output_dir=_resolve_optional_path(
+            os.environ.get("OUTPUT_DIR"), ROOT / "output"
+        ),
         music_align_enabled=os.environ.get("MUSIC_ALIGN_ENABLED", "true").lower()
         in ("1", "true", "yes"),
         music_silence_noise_db=float(os.environ.get("MUSIC_SILENCE_NOISE_DB", "-35")),
