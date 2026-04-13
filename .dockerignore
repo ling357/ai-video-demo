@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+output
+__pycache__
+*.pyc
+.venv
+venv
+*.seek_cache.json
+.cursor
+# 减小镜像体积；部署后请在平台挂卷或另行上传配乐
+assets/music/**/*.mp3
+assets/music/**/*.wav
+assets/music/**/*.m4a
+assets/music/**/*.flac
+assets/music/**/*.ogg
+分类

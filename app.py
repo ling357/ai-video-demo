@@ -12,6 +12,13 @@ from __future__ import annotations
 
 import os
 import sys
+
+# Render / 云平台会设置 PORT，且必须监听 0.0.0.0
+def _gradio_bind() -> tuple[str, int]:
+    port_s = os.environ.get("PORT")
+    if port_s:
+        return "0.0.0.0", int(port_s)
+    return "127.0.0.1", int(os.environ.get("GRADIO_SERVER_PORT", "7860"))
 import traceback
 from pathlib import Path
 
@@ -94,8 +101,10 @@ with gr.Blocks(title="情感视听 Demo（清影 + 配乐）") as demo:
     btn.click(_run, inp, [ref_img, out_vid, out_aud, plan_md, log_box])
 
 if __name__ == "__main__":
+    _host, _port = _gradio_bind()
     demo.launch(
         ssr_mode=False,
-        server_name="127.0.0.1",
+        server_name=_host,
+        server_port=_port,
         inbrowser=False,
     )
